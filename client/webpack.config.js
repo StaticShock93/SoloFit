@@ -5,7 +5,7 @@ module.exports = {
   entry: './index.jsx',
 
   output: {
-    path: path.join(__dirname, '/dist'),
+    path: path.resolve(__dirname, '/dist'),
     filename: 'bundle.js',
   },
 
@@ -36,5 +36,8 @@ module.exports = {
   },
   resolve: {
     extensions: ['.js', '.jsx'],
+  },
+  devServer: {
+    historyApiFallback: true,
   },
 };

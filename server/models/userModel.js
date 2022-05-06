@@ -32,7 +32,6 @@ const userSchema = new Schema({
   age: Number,
   currentWeight: Number,
   goalWeight: Number,
-  startDate: Date,
 });
 // userSchema.virtual('userEmail').get(function () {
 //   return `${this.name} <${this.userEmail}>`;

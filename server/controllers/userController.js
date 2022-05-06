@@ -4,19 +4,25 @@ const User = require('../models/userModel.js');
 const userController = {
   // add user to database
   createUser: (req, res, next) => {
+    const { name } = req.body;
+    const { email } = req.body;
+    const { age } = req.body;
+    const { currentWeight } = req.body;
+    const { goalWeight } = req.body;
+
     const newUser = new User({
       // these fields will be later changed to equal req.params from submitting user input form
-      name: 'testName3',
-      email: 'test3@gmail.com',
-      age: 20,
-      currentWeight: 128,
-      goalWeight: 155,
+      name,
+      email,
+      age,
+      currentWeight,
+      goalWeight,
     });
     newUser
       .save()
       .then((newUserData) => {
         // res.status(200).json(newUserData);
-        res.locals = newUserData
+        res.locals = newUserData;
         console.log('newUser', res.locals);
         return next();
       })
@@ -28,13 +34,8 @@ const userController = {
   },
   //   getUser data from Database
   getUserData: (req, res, next) => {
-    // console.log(req.params);
-    // const { _id } = req.params;
-    const { username } = req.params;
-    // console.log('resBody', res.body)
-    // console.log(userName)
+    const { username } = req.body;
     User.findOne({
-      //    _id: id
       name: username,
     })
       .then((userData) => {
@@ -65,12 +66,15 @@ const userController = {
 
   //  delete all user information
   deleteEntireUser: (req, res, next) => {
-    console.log('deleteSection', req.params);
-    const { id } = req.params;
-    User.findByIdAndDelete(id)
+    console.log('testingRemoveUser',req.params.id)
+    // console.log('deleteSection', req.params);
+    // delete by email or id on req.params.id
+  //  const {id} = req.body;
+    // const { email } = req.body;
+    User.findByIdAndDelete(req.params.id)
       .then((deletedUser) => {
-        res.locals = deletedUser
-        res.status(200).json(deletedUser);
+        res.locals = deletedUser;
+        // res.status(200).json(deletedUser);
         return next();
       })
       .catch((err) => {
@@ -79,7 +83,7 @@ const userController = {
         });
       });
   },
-// still need a put controller
+  // still need a put controller
 };
 
 module.exports = userController;

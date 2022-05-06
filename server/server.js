@@ -1,10 +1,12 @@
 require('dotenv').config();
 const express = require('express');
+const cors = require('cors');
 const app = express();
 const PORT = 5000;
 const userRouter = require('./routes/userRoutes');
-const exerciseRouter = require('./routes/exerciseRoutes')
+const exerciseRouter = require('./routes/exerciseRoutes');
 
+app.use(cors());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
@@ -16,7 +18,7 @@ app.use('/users', userRouter);
 // app.use('/user', userRouter)
 
 // routes for exercise based request
-app.use('/exercises', exerciseRouter)
+app.use('/exercises', exerciseRouter);
 
 // catch-all-error-handler
 app.use((req, res) => res.sendStatus(404));

@@ -8,7 +8,7 @@ export default class Navbar extends Component {
   render() {
     return <nav className="navbar navbar-expand-lg navbar-light mb-4">
     <div className="container-fluid">
-      <Link to='/createexercise' className="navbar-brand">FitnessTracker</Link>
+      <Link to='/createexercise' className="navbar-brand">MVP</Link>
       <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span className="navbar-toggler-icon"></span>
       </button>

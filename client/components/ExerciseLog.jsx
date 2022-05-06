@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import Footer from './Footer';
-import Table from './Table';
 import CreateExercise from './CreateExercise';
 
 export default class ExerciseLog extends Component {

@@ -1,5 +1,6 @@
 import React from 'react';
 import { useState } from 'react';
+import Footer from './Footer';
 
 export default function CreateExercise() {
   const [exerciseName, setExerciseName] = useState('');
@@ -23,10 +24,10 @@ export default function CreateExercise() {
       .then((response) => {response.json()
       console.log(response)})
       .catch((error) => console.log('Form submit error', error));
-    alert(`Your state values: \n 
-            ${exerciseName}, ${exerciseType}, ${exerciseDuration} \n `);
+    alert('Congratulations, progress is progress');
   };
   return (
+    <div>
     <main>
       <form onSubmit={handleSubmit} class='container-fluid align-items-center'>
         <div class='form-group'>
@@ -70,5 +71,7 @@ export default function CreateExercise() {
         </button>
       </form>
     </main>
+    <Footer />
+    </div>
   );
 }

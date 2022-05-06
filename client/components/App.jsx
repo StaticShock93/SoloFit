@@ -7,7 +7,7 @@ import {
   Route,
   Link,
   Routes,
-  NavLink
+  NavLink,
 } from 'react-router-dom';
 import Navbar from './Navbar';
 import CreateExercise from './CreateExercise';
@@ -22,6 +22,7 @@ class App extends Component {
         <div>
           <Navbar />
           <Routes>
+            <Route path='/' element={<CreateExercise />} />
             <Route path='/exerciselog' element={<ExerciseLog />} />
             <Route path='/createexercise/' element={<CreateExercise />} />
             <Route path='/userlogin' element={<UserLogin />} />
